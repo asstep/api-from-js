@@ -60,3 +60,17 @@ footer h5 {
 .result-card__overview {
     margin: 10px 0;
 }
+.result-card__button {
+    display: block;
+    margin: 20px auto;
+}
+
+.modal-dialog {
+
+}
+.modal-dialog__poster {
+
+}
+.modal-dialog__poster img {
+    max-width: 100%;
+}

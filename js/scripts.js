@@ -1,7 +1,9 @@
 // API: b0ea9e8719ded276503143740ee7613b
 
-var resultElem = document.getElementById('result'),
+var apiKet = 'b0ea9e8719ded276503143740ee7613b',
+    resultElem = document.getElementById('result'),
     searchMovie = document.getElementById('searchMovie'),
+    modalMovies = document.getElementById('modalMovies'),
     data = "{}",
     xhr = new XMLHttpRequest();
 
@@ -12,7 +14,7 @@ searchMovie.oninput = function () {
 getStartMovieList();
 
 function apiRequest(query) {
-    xhr.open("GET", `https://api.themoviedb.org/3/search/movie?page=1&query=${query}&api_key=b0ea9e8719ded276503143740ee7613b`, false);
+    xhr.open("GET", `https://api.themoviedb.org/3/search/movie?page=1&query=${query}&api_key=${apiKet}`, false);
     xhr.send(data);
     return xhr;
 }
@@ -22,7 +24,6 @@ function getMovieList(value) {
         var result = apiRequest(value),
             resultJson = JSON.parse(result.response);
 
-        console.log(resultJson);
         resultElem.innerHTML = "";
 
         if (resultJson.results.length >= 1) {
@@ -48,7 +49,7 @@ function getMovieList(value) {
 }
 
 function getStartMovieList() {
-    xhr.open("GET", `https://api.themoviedb.org/3/movie/top_rated?api_key=b0ea9e8719ded276503143740ee7613b&language=en-US&page=1`, false);
+    xhr.open("GET", `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKet}&language=en-US&page=1`, false);
     xhr.send(data);
     var resultJson = JSON.parse(xhr.response);
 
@@ -83,14 +84,43 @@ function buildListMovies(item) {
                 </div>
             </div>
         </div>
-        <div class="result-card__more" onclick="buildItemMovie(${item.id})">
+        <button type="button" class="btn btn-info result-card__button" onclick="buildItemMovie(${item.id})" data-toggle="modal" data-target="#modalMovies">
             More Info
-        </div>
+        </button>
     </div>`;
     resultElem.innerHTML += resultCard;
 }
 
 function buildItemMovie(id) {
-    console.log(id);
+    xhr.open("GET", `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKet}&language=en-US`, false);
+    xhr.send(data);
+    let resultJson = JSON.parse(xhr.response);
+
+    modalMovies.innerHTML =
+    `<div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    ${resultJson.title}
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-4 modal-dialog__poster">
+                        <img src="${(resultJson.poster_path)? 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/'+resultJson.poster_path : 'img/notfound.jpg'}" alt="${resultJson.title}">
+                    </div>
+                    <div class="col-8">
+                        ${resultJson.overview}
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>`;
 }
 
