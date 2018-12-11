@@ -1,0 +1,76 @@
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+header h5 {
+    font-weight: 100;
+    margin: 5px 0;
+}
+footer {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+footer h5 {
+    font-weight: 100;
+    margin: 5px 0;
+}
+
+
+.search {
+    padding: 100px 0;
+
+    text-align: center;
+}
+.search input {
+    background: #ccc;
+    border: 1px solid #333;
+    border-radius: 30px;
+
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px 20px;
+    max-width: 420px;
+    width: 100%;
+
+    transition: background-color 0.2s;
+}
+.search input:hover {
+    background: #eee;
+}
+.search input:focus {
+    background: #fff;
+    outline: none;
+}
+
+.result {
+    background: #eeeeee;
+    padding: 30px 0;
+}
+.result-card {
+    margin: 10px 0;
+}
+.result-card__poster img {
+    max-width: 100%;
+}
+.result-card__title {
+    margin: 10px 0;
+}
+.result-card__overview {
+    margin: 10px 0;
+}
+.result-card__button {
+    display: block;
+    margin: 20px auto;
+}
+
+.modal-dialog {
+
+}
+.modal-dialog__poster {
+
+}
+.modal-dialog__poster img {
+    max-width: 100%;
+}
