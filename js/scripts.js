@@ -1,4 +1,5 @@
 // API: b0ea9e8719ded276503143740ee7613b
+'use strict';
 
 var apiKet = 'b0ea9e8719ded276503143740ee7613b',
     resultElem = document.getElementById('result'),
@@ -60,7 +61,6 @@ function getStartMovieList() {
 }
 
 function buildListMovies(item) {
-    console.log(item);
     let resultCard = `
     <div class="col-4 result-card">
         <div class="result-card__poster">
