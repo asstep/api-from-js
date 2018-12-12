@@ -18,30 +18,10 @@ footer h5 {
 }
 
 
-.search {
+.searchSection {
     padding: 100px 0;
 
     text-align: center;
-}
-.search input {
-    background: #ccc;
-    border: 1px solid #333;
-    border-radius: 30px;
-
-    text-align: center;
-    margin: 20px 0;
-    padding: 10px 20px;
-    max-width: 420px;
-    width: 100%;
-
-    transition: background-color 0.2s;
-}
-.search input:hover {
-    background: #eee;
-}
-.search input:focus {
-    background: #fff;
-    outline: none;
 }
 
 .result {
