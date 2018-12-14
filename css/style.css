@@ -31,6 +31,9 @@ footer h5 {
 .result-card {
     margin: 10px 0;
 }
+.result-card__poster {
+    text-align: center;
+}
 .result-card__poster img {
     max-width: 100%;
 }

@@ -62,7 +62,7 @@ function getStartMovieList() {
 
 function buildListMovies(item) {
     let resultCard = `
-    <div class="col-4 result-card">
+    <div class="col-sm-6 col-md-4 result-card">
         <div class="result-card__poster">
             <img src="${(item.poster_path)? 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/'+item.poster_path : 'img/notfound.jpg'}" alt="${item.title}">
         </div>
